@@ -2,11 +2,23 @@
 Ubuntu environment for building pynagio python3 packages
 
 ```
-mkdir -pv packages/bionic
-mkdir -pv packages/xenial
-dist=xenial
-docker build --build-arg ubuntu_release=$dist -t pynagio:${dist} .
-docker run -v $(pwd)/packages:/packages --rm --name pynagio_$(date "+%s") -e dist="${dist}" -ti pynagio:${dist}
-ls -la packages/"${dist}"
+dis='ubuntu'
+rel='bionic'
+
+mkdir -pv packages/ubuntu/{xenial,bionic}
+mkdir -pv packages/debian/jessie
+
+docker build \
+    --build-arg dis=$dis \
+    --build-arg rel=$rel \
+    -t ${dis}-${rel}-pynagio .
+
+docker run \
+    -v $(pwd)/packages:/packages \
+    --rm \
+    --name pynagio_$(date "+%s") \
+    -e dis=$dis \
+    -e rel=$rel \
+    ${dis}-${rel}-pynagio
 ```
 

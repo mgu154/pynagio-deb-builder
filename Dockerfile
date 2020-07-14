@@ -1,10 +1,11 @@
-ARG ubuntu_release='bionic'
+ARG dis='ubuntu'
+ARG rel='bionic'
 
-FROM ubuntu:${ubuntu_release}
+FROM ${dis}:${rel}
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN=true
-ENV dist=${ubuntu_release}
+ENV dis=${rel}
 
 # Volumes
 VOLUME /packages
