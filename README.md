@@ -5,7 +5,7 @@ Ubuntu environment for building pynagio python3 packages
 dis='ubuntu'
 rel='bionic'
 
-mkdir -pv packages/ubuntu/{xenial,bionic}
+mkdir -pv packages/ubuntu/{xenial,bionic,focal}
 mkdir -pv packages/debian/jessie
 
 docker build \

@@ -1,7 +1,10 @@
-ARG dis='ubuntu'
-ARG rel='bionic'
+ARG dis
+ARG rel
 
 FROM ${dis}:${rel}
+
+ARG dis
+ARG rel
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN=true
